@@ -1,13 +1,29 @@
 services:
 
   mongo:
-    image: mongo
-    restart: always
+    image: mongo:5.0
+    container_name: mongo
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    networks:
-      - app
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=password
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    container_name: mexpress
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_URL=mongodb://root:password@mongo:27017/?authSource=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=mexpress
+      - ME_CONFIG_BASICAUTH_PASSWORD=mexpress
+    links:
+      - mongo
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
 
   web-php:
     image: php:fpm
@@ -16,7 +32,6 @@ services:
           - "./php/www:/script:ro"
     networks:
       - app
-    
 
   frontend:
     image: nginx
@@ -29,17 +44,22 @@ services:
       - app
     depends_on:
       - web-php
-    
-
 
   api:
-    image: node
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./api:/server
+    external_links:
+      - mongo
+    environment:
+      - URL_MONGO=mongodb://root:password@mongo:27017/
     networks:
       - app
 
-  
 networks:
   app:
     driver: bridge
