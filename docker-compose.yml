@@ -1,0 +1,45 @@
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - app
+
+  web-php:
+    image: php:fpm
+    container_name: web-php
+    volumes:
+          - "./php/www:/script:ro"
+    networks:
+      - app
+    
+
+  frontend:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./front:/usr/share/nginx/html
+      - ./config/server/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - app
+    depends_on:
+      - web-php
+    
+
+
+  api:
+    image: node
+    ports:
+      - "3000:3000"
+    networks:
+      - app
+
+  
+networks:
+  app:
+    driver: bridge
