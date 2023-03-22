@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="accueil.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="logoAccueil"><img class="imgAccueil" src="assets/Login.png" alt="logo"></div>
+        <div class="start">
+            <div class="titreAccueil">
+                <h1>CyberConseil</h1>
+            </div>
+            <div class="boutonDiv">
+                <form action="index.php">
+                    <button class="boutonAccueil" type="submit">Commencer !</button>
+                </form>
+            </div>
+
+    </div>
+    </main>
+</body>
+</html>
