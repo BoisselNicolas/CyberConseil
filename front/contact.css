@@ -45,7 +45,7 @@ textarea    {
 }
 .boutonEnvoyer  {
     width: auto;
-    background: linear-gradient(0.25turn, #dc7c64, #f5d8d1);
+    background: #dc7c64;
     border-radius: 33px;
     border: none;
     font-size: 1em;
