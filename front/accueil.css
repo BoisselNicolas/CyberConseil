@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+html    {
+    height: 100%;
+}
 body    {
     display: flex;
     background: linear-gradient(0.25turn, #dc7c64, #f5d8d1);
     margin: 0;
-    padding: 1em;
-    height: 58em;
+    padding: 1%;
+    height: 96%;
 }
 main    {
     display: flex;
@@ -58,4 +61,44 @@ h1  {
     align-items: center;
     height: 65%;
     width: 100%;
+}
+
+@media (max-width: 1500px)	{
+    h1 {
+        font-size: 5em;
+    }
+    .boutonAccueil  {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 1200px)	{
+    h1 {
+        font-size: 4em;
+    }
+    .boutonAccueil  {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 800px)	{
+    main {
+        flex-direction: column;
+    }
+    .logoAccueil    {
+        width: 100%;
+        margin-bottom: 2em;
+        padding-top: 2em;
+    }
+    .start  {
+        width: 100%;
+    }
+}
+@media (max-width: 500px)	{
+    h1 {
+        font-size: 3em;
+    }
+    .boutonAccueil  {
+        font-size: 1.5em;
+    }
 }
