@@ -20,3 +20,10 @@ $(".action-button").click(function(){
     animating = false;
 });
 
+x = progressbar.getElementsByTagName("LI").length;
+console.log(x);
+var e = document.getElementsByTagName("LI");
+for (let i=0;i<x;i++){
+	console.log(i);
+	e[i].style.width = (100/x)+'%';
+}
