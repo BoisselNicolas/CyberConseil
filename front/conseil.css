@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+html {
+    height: 100%;
+}
+body    {
+    display: flex;
+    background: linear-gradient(0.25turn, #dc7c64, #f5d8d1);
+    margin: 0;
+    padding: 1%;
+    height: 96%;
+}
+main    {
+    display: flex;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+}
+.titreReponse {
+    text-align: center;
+}
+.texteReponse   {
+    padding: 3em;
+}
+.contact    {
+    padding: 3em;
+}
+.boutonContact  {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+.boutonReponse  {
+    width: auto;
+    background:#dc7c64;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.5em;
+    padding: 1em;
+    color: white;
+    font-family: montserrat, arial, verdana;
+}
+h1  {
+    color: #dc7c64;
+    font-family: 'Lobster', cursive;
+    font-size: 6em;
+}
+p   {
+    font-size: 1.3em;
+    font-family: montserrat, arial, verdana;
+}
+.theme  {
+    color: #dc7c64;
+    font-size: 1.5em;
+}
+.boutonReponse:hover    {
+    cursor: pointer;
+}
+@media (max-width: 1400px)	{
+    html {
+        height: auto;
+    }
+}
