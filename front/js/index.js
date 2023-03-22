@@ -5,7 +5,16 @@ var animating; //flag to prevent quick multi-click glitches
 
 animating = false;
 
+console.log('into file');
+
 $(".action-button").click(function(){
+
+console.log('into click ')
+	let nextId = $(this).attr("next_id");
+	console.log(nextId)	;
+  
+	
+
 	if(animating) return false;
 	animating = true;
 	

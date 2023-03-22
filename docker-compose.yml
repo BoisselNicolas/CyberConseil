@@ -12,7 +12,9 @@ services:
     ports:
       - "27017:27017"
     volumes:
-          - ./db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+        - ./db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+        - ./db/data:/data/db
+
 
 
   mongo-express:
@@ -30,17 +32,6 @@ services:
     ports:
       - "8081:8081"
 
-  web-php:
-    image: php:fpm
-    container_name: web-php
-    environment:
-      - API_URI=http://api:3000
-    ports:
-      - "9000:9000"
-    volumes:
-          - "./front:/var/www/html:ro"
-   
-
 
   frontend:
     image: nginx
@@ -49,11 +40,10 @@ services:
     volumes:
       - ./front:/var/www/html
       - ./config/server/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - web-php
+    environment:
+      - API_URL=http://api:3000
 
-    links:
-    - web-php
+
 
 
   api:
@@ -64,10 +54,11 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./api:/server:consistent
+      - ./api:/usr/src/app:consistent
     links:
       - mongo
     environment:
       - URL_MONGO=mongodb://api_user:api1234@mongo:27017/cyberconseil
-  
+
+
 

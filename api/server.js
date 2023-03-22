@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 
+var cors = require('cors')
+
 
 console.log(process.env.URL_MONGO);
 /**
@@ -17,9 +19,9 @@ mongoose.connect(process.env.URL_MONGO, { useNewUrlParser: true })
 const QuestionsSchema = mongoose.Schema(
   {
     //_id: mongoose.ObjectId,
+    id: Number,
     question: String,
-    nice: String,
-    bad: String
+    response: Object
   }
 );
   
@@ -33,6 +35,8 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+app.use(cors())
+
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
@@ -41,9 +45,25 @@ app.get('/', (req, res) => {
 app.get('/addQuestion', (req, res) => {
 
   let newQuestion = new Question({
-      question: 'comment vas tu ',
-      nice: 'nice',
-      bad: 'bad'
+      id: '1',
+      question: 'Effectuez-vous des sauvegardes régulières ?',
+      response: {
+        r1: {
+          value: 'Oui',
+          conseil: '',
+          next_id: ''
+        },
+        r2: {
+          value: 'De temps en temps',
+          conseil: '',
+          next_id: ''
+        }, 
+        r3: {
+          value: 'Non',
+          conseil: '',
+          next_id: ''
+        }
+      }
   })
 
   newQuestion.save().then(() => {
@@ -55,7 +75,8 @@ app.get('/addQuestion', (req, res) => {
 });
 
 app.get('/getQuestions', (req, res) => {
-  Question.find({})
+
+  Question.find({id: req.query.id_question})
     .exec()
     .then((obj) => {
       if (obj != null) {
