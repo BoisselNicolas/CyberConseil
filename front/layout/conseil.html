@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/conseil.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="titreReponse">
+            <h1>Nos conseils</h1>
+        </div>
+        <div id="TR" class="texteReponse">
+        </div>
+        <div class="contact">
+            <p>Vous pouvez nous contacter pour plus d'information</p>
+        </div>
+        <div class="boutonContact">
+            <form action="contact.html"><button class="boutonReponse" type="submit">Accéder au formulaire<br> de contact</button></form>
+        </div>
+    </main>
+</body>
+</html>
+
+
+<script>
+    var final_hint = sessionStorage.getItem('final_hint').split('|');
+    console.log(final_hint);
+    if(final_hint[0] != ''){
+        final_hint.forEach(element => {
+        var title = element.split(';')
+        document.getElementById('TR').innerHTML = document.getElementById('TR').innerHTML + 
+        `<p class="theme">${title[0]}</p> <p>- ${title[1].replaceAll('-', '</br> -')}</p>`
+        
+        console.log(element)
+        })
+    
+    }else{
+        document.getElementById('TR').innerHTML = document.getElementById('TR').innerHTML + 
+        `<p class="theme">GOD MODE</p> <p>- T'es trop fort ! C'est toi qui devrait nous donner des conseils ! </p>`
+    }
+    
+</script>
