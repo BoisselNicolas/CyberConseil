@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 html {
     height: 100%;
 }
@@ -41,7 +41,7 @@ main    {
 }
 h1  {
     color: #dc7c64;
-    font-family: montserrat, arial, verdana;
+    font-family: 'Lobster', cursive;
     font-size: 6em;
 }
 p   {

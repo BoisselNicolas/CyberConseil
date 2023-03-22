@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 html    {
     height: 100%;
 }
@@ -29,8 +29,9 @@ main    {
     width: 60%;
 }
 h1  {
-    font-family: 'Alkatra', cursive;
+    font-family: 'Lobster', cursive;
     font-size: 6em;
+    margin: 0;
 }
 .imgAccueil {
     width: 55%;
@@ -55,10 +56,15 @@ h1  {
     justify-content: center;
     width: 100%;
 }
+h2  {
+    font-family: 'Lobster', cursive;
+    font-size: 2em;
+}
 .titreAccueil   {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 65%;
     width: 100%;
 }
@@ -69,6 +75,9 @@ h1  {
     }
     .boutonAccueil  {
         font-size: 2.5em;
+    }
+    .boutonDiv  {
+        margin-top: 2em;
     }
 }
 
