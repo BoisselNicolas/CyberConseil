@@ -14,16 +14,22 @@
 <form id="msform">
     <!-- progressbar -->
     <ul id="progressbar">
-        <li class="active li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
-        <li class=" li"></li>
+        <li class="li active"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        
     </ul>
     <!-- fieldsets -->
 
@@ -74,9 +80,9 @@
                     if (sub_next_id == 0 || sub_next_id == undefined) {
                         if (hint != '') {
                             if(document.getElementById('hint') == null){
-                                document.getElementById('msform').innerHTML = document.getElementById('msform').innerHTML + `<br> <fieldset id="hint" style="display:block" > <h2 id="title" style="text-align:left" class="fs-title">HINT : </h2><div>${hint}</div> </fieldset>`
+                                document.getElementById('msform').innerHTML = document.getElementById('msform').innerHTML + `<br> <fieldset id="hint" style="display:block" > <h2 id="title" style="text-align:left" class="fs-title"><img src="../assets/img/idee.png" /> </h2><div>${hint}</div> </fieldset>`
                             }else{
-                                document.getElementById('hint').innerHTML = `<h2 id="title" style="text-align:left" class="fs-title">HINT : </h2><div>${hint}</div>`
+                                document.getElementById('hint').innerHTML = `<h2 id="title" style="text-align:left" class="fs-title"><img src="../assets/img/idee.png" /> </h2><div>${hint}</div>`
                             }
                             
                         }
