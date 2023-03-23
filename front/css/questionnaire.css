@@ -54,7 +54,7 @@ body {
 }
 /*buttons*/
 #msform .action-button {
-    width: 300px;
+    width: 45%;
     height: 100px;
     background: #dc7c64;
     font-weight: bold;
@@ -67,6 +67,8 @@ body {
     text-decoration: none;
     font-size: 14px;
     border-radius: 3px;
+    white-space: normal;
+    vertical-align: baseline;
 }
 #msform .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
